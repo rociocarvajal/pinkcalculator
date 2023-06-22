@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2? family= IBM+Plex+Mono:wght@300 & family= Inconsolata:wght@200;300 & display=swap');
+
+:root{
+  --rosadito: #ffc0cb;
+  --negro: #000;
+  --degradado: linear-gradient(90deg, var(--rosadito),var(--rosa));
+}
+* {
+  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Inconsolata', monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+}
+
+*::selection {
+  background-color: var(--rosadito);
+  color: white;
+}
+html {
+  font-size: 62.4%;
+  overflow: hidden;
+}
+body {
+  background-color: white;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0, .1);
+  padding: 2rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+header .logo {
+  font-size: 2rem;
+  color: var(--negro);
+}
+header .logo span {
+  color:var(--rosadito);
+}
+header .navbar a {
+  font-size: 1.8rem;
+  margin-left: 2rem;
+  color: var(--negro);
+}
+header .navbar a:hover {
+  color: var(--rosadito);
+}
+header input{
+  display: none;
+}
+header label {
+  font-size: 3rem;
+  color: var(--rosadito);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+}
+
+/*a partir de aca lo vamos a hacer responsive*/
+
+@media(max-width: 1200px) {/*medida estandar*/
+  html {
+    font-size: 55%;
+  }
+}
+@media (max-width:768px) {
+  header label {
+    visibility: visible;
+    opacity: 1;
+  }
+  header .navbar{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: white;
+    padding: 1rem 2rem;
+    border-top: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  header .navbar a {
+    display: block;
+    margin: 2rem 0;
+    font-size: 2rem;
+  }
+  header input:checked ~ .navbar {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  header input:checked ~ label::before {
+    content: '\f00d';
+  }
+}
+@media (max-width: 450px) {
+  html {
+    font-size: 49%;
+  }
+}
+body {
+ 
+  width: 303px;
+  margin: 4% auto;
+  font-size: 1.8rem;
+
+}
+
+.calculator {
+  margin-top: 100px;
+  padding: 20px;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 1px;
+  background-color: black;
+}
+
+.input {
+  border: 1px solid #ddd;
+  border-radius: 1px;
+  height: 45px;
+  width: 236px;
+  padding-right: 15px;
+  padding-top: 10px;
+  text-align: right;
+  margin-right: 6px;
+  font-size: 2.5rem;
+  overflow-x: auto;
+  transition: all .2s ease-in-out;
+  color: pink;
+}
+
+.input:hover {
+  border: 1px solid #bbb;
+  -webkit-box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+
+}
+
+
+.operators div {
+  
+  display: inline-block;
+  border: 1px solid #bbb;
+  border-radius: 1px;
+  width: 50px;
+  text-align: center;
+  padding: 10px;
+  margin: 20px 4px 10px 0;
+  cursor: pointer;
+  background-color: pink;
+  color: white;
+  transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+}
+
+.operators div:hover {
+  background-color: black;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-left: 1px solid pink;
+  border-bottom: 1px solid pink;
+  color: pink;
+
+}
+
+.operators div:active {
+  font-weight: bold;
+}
+
+.leftPanel {
+  display: inline-block;
+}
+
+.numbers div {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 44px;
+  text-align: center;
+  padding: 15px 20px;
+  margin: 10px 4px 10px 0;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: border-color .2s ease-in-out, background-color .2s, box-shadow .2s;
+  color: pink;
+  background-color: black;
+  border-left: 1px solid pink;
+  border-bottom: 1px solid pink;
+}
+
+.numbers div:hover {
+  background-color: pink;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  transition: 1s;
+  color: black;
+  border-top: 1px solid white;
+  border-right: 1px solid white;
+}
+
+.numbers div:active {
+  font-weight: bold;
+}
+
+div.equal {
+  display: inline-block;
+  border: 1px solid pink;
+  border-radius: 1px;
+  width: 50px;
+
+  text-align: center;
+  padding: 108px 10px;
+  margin: 10px 6px 10px 0;
+  vertical-align: top;
+  cursor: pointer;
+  color: #FFF;
+  background-color: pink;
+  transition: all .2s ease-in-out;
+}
+
+div.equal:hover {
+  background-color: black;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-bottom: 1px solid pink;
+  border-left: 1px solid pink;
+  color: pink;
+  
+}
+
+div.equal:active {
+  font-weight: bold; 
+}
