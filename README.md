@@ -1,1 +1,1 @@
-# pinkcalculator.github.io
+# pinkcalculator
